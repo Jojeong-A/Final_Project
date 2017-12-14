@@ -16,39 +16,6 @@ void Select_Time(int AMPM, int H, int M);
 int rogin(void);
 void aram(int n);
 
-int getch(void)
-
-{
-
-    int ch;
-
-    struct termios buf;
-
-    struct termios save;
-
-    tcgetattr(0, &save);
-
-    buf = save;
-
-    buf.c_lflag &= ~(ICANON | ECHO);
-
-    buf.c_cc[VMIN] = 1;
-
-    buf.c_cc[VTIME] = 0;
-
-    tcsetattr(0, TCSAFLUSH, &buf);
-
-    ch = getchar();
-
-    tcsetattr(0, TCSAFLUSH, &save);
-
-    return ch;
-
-}
-
-[출처] 리눅스 getch|작성자 IceStove
-
-
 
 struct A
 {
